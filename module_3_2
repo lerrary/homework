@@ -1,20 +1,28 @@
+def check_for_email(s):
+    chars = (".com", ".ru", ".net")
+    s.lower()
+    if s.count('@') == 1 and s[0] != '@' and s.endswith(chars):
+        return True
+    return False
+
 def send_email(message, recipient, *, sender = "university.help@gmail.com"):
-    if (".ru" or ".com" or ".net") not in recipient or "@" not in recipient:
+
+    if check_for_email(sender) == False:
         print(f"Невозможно отправить письмо с адреса <{sender}> на адрес <{recipient}>")
-
     else:
-        if (".ru" or ".com" or ".net") not in sender or "@" not in sender:
+        check_for_email(recipient)
+        if check_for_email(recipient) == False:
             print(f"Невозможно отправить письмо с адреса <{sender}> на адрес <{recipient}>")
-
         else:
+
             if sender == recipient:
                 print('Нельзя отправить письмо самому себе!')
 
             else:
                 if sender == 'university.help@gmail.com':
-                    print("Письмо успешно отправлено с адреса <", sender, "> на адрес <", recipient, ">")
+                    print(f"Письмо успешно отправлено с адреса <{sender}> на адрес <{recipient}>")
                 else:
-                    print("НЕСТАНДАРТНЫЙ ОТПРАВИТЕЛЬ! Письмо отправлено с адреса <", sender, "> на адрес <", recipient, ">")
+                    print(f"НЕСТАНДАРТНЫЙ ОТПРАВИТЕЛЬ! Письмо отправлено с адреса <{sender}> на адрес <{recipient}>")
 
 
 
