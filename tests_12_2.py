@@ -2,6 +2,8 @@ import task2
 import unittest
 
 class TournamentTest(unittest.TestCase):
+    iz_frozen = True
+
     @classmethod
     def setUpClass(cls):
         cls.all_results = {}
@@ -11,6 +13,7 @@ class TournamentTest(unittest.TestCase):
         self.run2 = task2.Runner('Андрей', 9)
         self.run3 = task2.Runner('Ник', 3)
 
+    @unittest.skipIf(iz_frozen, 'Тесты в этом кейсе заморожены')
     def test_start1(self):
         self.start1 = task2.Tournament(90, self.run1, self.run3)
         self.all_results.update(self.start1.start())
@@ -19,6 +22,7 @@ class TournamentTest(unittest.TestCase):
         b = self.all_results.get(a)
         self.assertTrue(b, self.run3)
 
+    @unittest.skipIf(iz_frozen, 'Тесты в этом кейсе заморожены')
     def test_start2(self):
         self.start2 = task2.Tournament(90, self.run2, self.run3)
         self.all_results.update(self.start2.start())
@@ -27,6 +31,7 @@ class TournamentTest(unittest.TestCase):
         b = self.all_results.get(a)
         self.assertTrue(b, self.run3)
 
+    @unittest.skipIf(iz_frozen, 'Тесты в этом кейсе заморожены')
     def test_start3(self):
         self.start3 = task2.Tournament(90, self.run1, self.run2, self.run3)
         self.all_results.update(self.start3.start())
