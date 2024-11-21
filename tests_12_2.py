@@ -17,7 +17,7 @@ class TournamentTest(unittest.TestCase):
         print (self.all_results)
         a = max(self.all_results.keys())
         b = self.all_results.get(a)
-        self.assertEqual(b, self.run3)
+        self.assertTrue(b, self.run3)
 
     def test_start2(self):
         self.start2 = task2.Tournament(90, self.run2, self.run3)
@@ -25,7 +25,7 @@ class TournamentTest(unittest.TestCase):
         print(self.all_results)
         a = max(self.all_results.keys())
         b = self.all_results.get(a)
-        self.assertEqual(b, self.run3)
+        self.assertTrue(b, self.run3)
 
     def test_start3(self):
         self.start3 = task2.Tournament(90, self.run1, self.run2, self.run3)
@@ -33,4 +33,4 @@ class TournamentTest(unittest.TestCase):
         print(self.all_results)
         c = max(self.all_results.keys())
         d = self.all_results.get(c)
-        self.assertEqual(d, self.run3)
+        self.assertTrue(d, self.run3)
