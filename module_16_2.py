@@ -4,9 +4,12 @@ from typing import Annotated
 app = FastAPI()
 
 @app.get("/")
-async def get_main_page():
+async def get_main():
     return "Главная страница"
 
+@app.get("/user/admin")
+async def admin():
+    return "Вы вошли как администратор"
 
 @app.get("/user/{user_id}")
 async def get_user(
